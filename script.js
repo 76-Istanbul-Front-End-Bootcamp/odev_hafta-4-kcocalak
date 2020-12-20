@@ -38,17 +38,27 @@ createCurrencyElements(currencyKeys, parentToEl, toInputName);
 
 const calculateButton = document.querySelector("#calculate-button");
 calculateButton.addEventListener("click", function(){
-   // kimden ceviriyourz
-   const fromTarget = document.querySelector("input[name='currency_from']:checked").value;
-   // kime ceviriyoruz
-   const toTarget   = document.querySelector("input[name='currency_to']:checked").value;
-   // amountu alalim
-   const amount     = document.querySelector("input[name='amount']").value;
 
-   const currentCurrencyObject = data[fromTarget];
-   const resultForOne = currentCurrencyObject[toTarget];
-   const result = amount * resultForOne;
+  // kimden ceviriyourz
+  const fromTarget = document.querySelector("input[name='currency_from']:checked");
+  // kime ceviriyoruz
+  const toTarget   = document.querySelector("input[name='currency_to']:checked");
+  // amountu alalim
+  const amount     = document.querySelector("input[name='amount']").value;
 
-   const currencyResult = document.querySelector("#currency-result");
-   currencyResult.innerHTML = amount + " " + fromTarget + " = " + result + " " + toTarget;
+  if(fromTarget !== null && toTarget !== null) { 
+
+    const currentCurrencyObject = data[fromTarget.value];
+    const resultForOne = currentCurrencyObject[toTarget.value];
+    const result = amount * resultForOne;
+
+    const currencyResult = document.querySelector("#currency-result");
+    currencyResult.innerHTML = amount + " " + fromTarget.value + " = " + result + " " + toTarget.value;
+  }
+
+  else { 
+    const currencyResult = document.querySelector("#currency-result");
+    currencyResult.innerHTML 
+        = "Secim yapmalisiniz"; 
+  }
 });

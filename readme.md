@@ -1,6 +1,6 @@
 ## ODEVLER
 
-- secim yapilmadiysa sonuc yazdirdigimiz yere "secim yapmalisiniz"
+- ___ "secim yapilmadiysa sonuc yazdirdigimiz yere "secim yapmalisiniz" ___
 - ayni secim yapildiysa sonuc yazdirdigimiz yere "farkli secimler yapmalisiniz"
 - currency olarka istedigimiz bir tane daha ekliyoruz.
 - amount sayi olarka girilmediyse, amout olarak sayi girmeliiniz uyarisi cikacak.  

@@ -1,7 +1,8 @@
 const data = {
-  USD: {EUR: 0.82, GBP: 0.74},
-  EUR: {USD: 1.23, GBP: 0.91},
-  GBP: {USD: 1.35, EUR: 1.10},
+  USD: {EUR: 0.82, GBP: 0.74, CHF: 0.88},
+  EUR: {USD: 1.23, GBP: 0.91, CHF: 1.08},
+  GBP: {USD: 1.35, EUR: 1.10, CHF: 1.19},
+  CHF: {USD: 1.13, EUR: 0.92, GBP: 0.84},
 };
 
 const currencyKeys = Object.keys(data);
@@ -51,9 +52,14 @@ calculateButton.addEventListener("click", function(){
     const currentCurrencyObject = data[fromTarget.value];
     const resultForOne = currentCurrencyObject[toTarget.value];
     const result = amount * resultForOne;
-
-    const currencyResult = document.querySelector("#currency-result");
-    currencyResult.innerHTML = amount + " " + fromTarget.value + " = " + result + " " + toTarget.value;
+    if (result+"" === "NaN") {
+      const currencyResult = document.querySelector("#currency-result");
+      currencyResult.innerHTML = "farkli secimler yapmalisiniz";
+    }
+    else{
+      const currencyResult = document.querySelector("#currency-result");
+      currencyResult.innerHTML = amount + " " + fromTarget.value + " = " + result + " " + toTarget.value;  
+    }
   }
 
   else { 

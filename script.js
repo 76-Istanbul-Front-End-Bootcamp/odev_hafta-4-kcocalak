@@ -52,7 +52,15 @@ calculateButton.addEventListener("click", function(){
     const currentCurrencyObject = data[fromTarget.value];
     const resultForOne = currentCurrencyObject[toTarget.value];
     const result = amount * resultForOne;
-    if (result+"" === "NaN") {
+    if (+amount === 0) {
+      const currencyResult = document.querySelector("#currency-result");
+      currencyResult.innerHTML = "lutfen amount giriniz"; 
+    }
+    else if (String(+amount) === "NaN"){
+      const currencyResult = document.querySelector("#currency-result");
+      currencyResult.innerHTML = "amout olarak sayi girmelisiniz";
+    }
+    else if (result+"" === "NaN") {
       const currencyResult = document.querySelector("#currency-result");
       currencyResult.innerHTML = "farkli secimler yapmalisiniz";
     }
@@ -61,7 +69,7 @@ calculateButton.addEventListener("click", function(){
       currencyResult.innerHTML = amount + " " + fromTarget.value + " = " + result + " " + toTarget.value;  
     }
   }
-
+  
   else { 
     const currencyResult = document.querySelector("#currency-result");
     currencyResult.innerHTML 
